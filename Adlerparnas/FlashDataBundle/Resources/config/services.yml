@@ -1,0 +1,13 @@
+parameters:
+#    adlerparnas_flash_data.example.class: Adlerparnas\FlashDataBundle\Example
+
+services:
+    flashdata:
+        class: Adlerparnas\FlashdataBundle\Service\FlashDataService
+        arguments: [@session.storage]
+
+    adlerparnas.flashdata.twig.flashdataextension:
+        class: Adlerparnas\FlashDataBundle\Twig\Extension\FlashdataExtension
+        arguments: [@flashdata]
+        tags:
+          - { name: twig.extension }
